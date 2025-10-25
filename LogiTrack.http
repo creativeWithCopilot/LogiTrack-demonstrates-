@@ -1,0 +1,84 @@
+@LogiTrack_HostAddress = http://localhost:5105
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI1NmU3NWNkMS02NGI1LTQ3NGUtYWMwMi0yZmNjZjNlYjdiMDkiLCJlbWFpbCI6InVzZXJAbG9naXRyYWNrLmNvbSIsImh0dHA6Ly9zY2hlbWFzLnhtbHNvYXAub3JnL3dzLzIwMDUvMDUvaWRlbnRpdHkvY2xhaW1zL25hbWUiOiJ1c2VyQGxvZ2l0cmFjay5jb20iLCJleHAiOjE3NjEzODc2NDksImlzcyI6IkxvZ2lUcmFjayIsImF1ZCI6IkxvZ2lUcmFja0F1ZGllbmNlIn0.rXtJWj2-Vxwf5KTPGiMbCR1YSCAXOzZBFdKBkEJjdYs
+###
+POST {{LogiTrack_HostAddress}}/api/auth/register/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "user@logitrack.com",
+  "password": "@ppUser123"
+}
+
+###
+POST {{LogiTrack_HostAddress}}/api/auth/login/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "admin@logitrack.com",
+  "password": "@ppAdmin123"
+}
+
+###
+POST {{LogiTrack_HostAddress}}/api/auth/login/
+Accept: application/json
+Content-Type: application/json
+
+{
+  "email": "user@logitrack.com",
+  "password": "@ppUser123"
+}
+
+###
+GET {{LogiTrack_HostAddress}}/api/inventory/
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+POST  {{LogiTrack_HostAddress}}/api/inventory/
+Accept: application/json
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+    "name": "Item C",
+    "quantity": 100,
+    "location": "Warehouse 2"
+}
+
+###
+DELETE {{LogiTrack_HostAddress}}/api/inventory/1
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+GET {{LogiTrack_HostAddress}}/api/order/
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+GET {{LogiTrack_HostAddress}}/api/order/2
+Accept: application/json
+Authorization: Bearer {{token}}
+
+###
+POST {{LogiTrack_HostAddress}}/api/order/
+Accept: application/json
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "customerName": "Win Thein",
+  "items": [
+    {
+      "inventoryItemId": 2,
+      "quantity": 10
+    }
+  ]
+}
+
+###
+DELETE {{LogiTrack_HostAddress}}/api/order/3
+Accept: application/json
+Authorization: Bearer {{token}}
